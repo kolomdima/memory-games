@@ -3,6 +3,17 @@ let cardName1 = '';
 let started = false;
 let startDate = new Date;
 let gameOver = false;
+let pictures = [
+  'cat.jpg',
+  'cat.jpg',
+  'dog.jpg',
+  'dog.jpg',
+  'monkey.jpg',
+  'monkey.jpg',
+  'horse.jpg',
+  'horse.jpg'
+];
+let cardCount = 8;
 
 
 [...cards].forEach((card)=>{
@@ -41,4 +52,12 @@ let gameOver = false;
     }
 
   });
+  let i = getRandomInt(cardCount);
+  card.getElementsByClassName('card__face--back')[0].setAttribute('src', pictures[i]); 
+  pictures.splice(i, 1);
+  cardCount -= 1;
 });
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
